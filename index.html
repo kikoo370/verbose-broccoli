@@ -1,44 +1,100 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Portal</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistance pour demande de prêt</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Application Portal</h1>
-        <p>Welcome to our online application portal</p>
-    </header>
+  <header>
+    <h1>Assistance pour demande de prêt</h1>
+    <p>Nous vous aidons à comprendre et à compléter votre demande.</p>
+  </header>
 
-    <main>
-        <section class="card">
-            <h2>Start Your Application</h2>
-            <p>Complete the application form below.</p>
+  <main>
 
-            <form id="applicationForm">
+    <section class="intro">
+      <h2>Besoin d'aide pour votre demande ?</h2>
+      <p>
+        Notre service vous accompagne dans les étapes de votre demande
+        et vous aide à fournir correctement les informations nécessaires.
+      </p>
 
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
+      <div class="notice">
+        <strong>Important :</strong>
+        L'assistance ne garantit pas l'approbation d'un prêt.
+        Toute décision dépend du prestataire de crédit concerné.
+      </div>
+    </section>
 
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" required>
+    <section class="features">
+      <div>
+        <span>⚡</span>
+        <h3>Simple et rapide</h3>
+        <p>Obtenez de l'aide pour compléter votre demande.</p>
+      </div>
 
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email">
+      <div>
+        <span>💯</span>
+        <h3>Informations claires</h3>
+        <p>Nous vous expliquons les étapes de la procédure.</p>
+      </div>
 
-                <button type="submit">Submit Application</button>
+      <div>
+        <span>📱</span>
+        <h3>Accessible sur mobile</h3>
+        <p>Utilisez le service depuis votre téléphone ou ordinateur.</p>
+      </div>
 
-            </form>
+      <div>
+        <span>🔒</span>
+        <h3>Respect de vos informations</h3>
+        <p>Ne partagez jamais votre mot de passe, PIN ou code OTP.</p>
+      </div>
+    </section>
 
-            <p id="message"></p>
-        </section>
-    </main>
+    <section class="application">
+      <h2>Commencer votre demande</h2>
+      <p>Veuillez renseigner uniquement les informations nécessaires.</p>
 
-    <script src="script.js"></script>
+      <form>
+
+        <label for="name">Nom complet</label>
+        <input type="text" id="name" name="name"
+               placeholder="Entrez votre nom complet" required>
+
+        <label for="phone">Numéro de téléphone</label>
+        <input type="tel" id="phone" name="phone"
+               placeholder="Entrez votre numéro de téléphone" required>
+
+        <label for="email">Adresse e-mail</label>
+        <input type="email" id="email" name="email"
+               placeholder="Entrez votre adresse e-mail">
+
+        <label for="help">Comment pouvons-nous vous aider ?</label>
+        <select id="help" name="help">
+          <option value="">Sélectionnez une option</option>
+          <option>Comprendre la procédure</option>
+          <option>Obtenir de l'aide pour remplir la demande</option>
+          <option>Informations générales sur le prêt</option>
+          <option>Autre demande</option>
+        </select>
+
+        <button type="submit">Soumettre ma demande</button>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 — Service d'assistance à la demande</p>
+    <p>Ce site fournit une assistance et ne garantit aucune approbation de prêt.</p>
+  </footer>
 
 </body>
 </html>
