@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+    <header>
+        <h1>Application Portal</h1>
+        <p>Welcome to our online application portal</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Start Your Application</h2>
+            <p>Complete the application form below.</p>
+
+            <form id="applicationForm">
+
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email">
+
+                <button type="submit">Submit Application</button>
+
+            </form>
+
+            <p id="message"></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
