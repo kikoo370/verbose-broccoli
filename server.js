@@ -1,14 +1,17 @@
-
-const express = require("express");
-
+const express = require('express');
+const path = require('path');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 
+app.use(express.static(__dirname));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.send("Backend is running.");
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.get('/health', (req, res) => {
+  res.send('Backend is running.');
 });
 
 app.listen(PORT, () => {
