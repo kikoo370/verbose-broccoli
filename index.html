@@ -181,6 +181,29 @@ document.getElementById('page'+n).classList.add('active');
 document.querySelectorAll('.step')[n-1].classList.add('active');
 window.scrollTo(0,0);
 }
+</script> 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form');
+  if(!form) { console.log('No form found'); return; }
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    alert('Sending... wait 50 sec, site is waking up');
+    try {
+      const res = await fetch('/submit', { method: 'POST', body: formData });
+      const result = await res.json();
+      console.log(result);
+      if(result.success) {
+        alert('SUCCESS! Check Telegram now!');
+      } else {
+        alert('Server error: ' + result.error);
+      }
+    } catch(err) {
+      alert('Error: ' + err.message);
+    }
+  });
+});
 </script>
 </div>
 </body>
