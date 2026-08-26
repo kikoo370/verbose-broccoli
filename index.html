@@ -1,66 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Prêts Airtel - Autorisé et Réglementé</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demande de Prêt</title>
 <style>
-body{margin:0;font-family:Arial;background:#f5f5f5}
-.header{background:#e40000;color:white;text-align:center;padding:30px}
-.header h1{margin:0}
-.box{max-width:500px;background:white;margin:20px auto;padding:25px;border-radius:10px}
+body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;margin:0;padding:20px;}
+.container{max-width:800px;margin:auto;background:white;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);overflow:hidden;}
+.header{background:linear-gradient(135deg,#0d47a1,#1976d2);color:white;padding:25px;text-align:center;}
+.header h1{margin:0;font-size:24px;}
+.step-bar{display:flex;background:#e3f2fd;}
+.step{flex:1;padding:15px;text-align:center;font-weight:bold;color:#90a4ae;border-bottom:4px solid transparent;cursor:pointer;}
+.step.active{color:#0d47a1;border-bottom:4px solid #0d47a1;background:white;}
+.page{display:none;padding:30px;}
+.page.active{display:block;}
+label{font-weight:600;color:#333;display:block;margin:15px 0 5px;}
+input,select,textarea{width:100%;padding:12px;border:1px solid #cfd8dc;border-radius:8px;font-size:15px;box-sizing:border-box;}
+input::placeholder,textarea::placeholder{color:#aab7c4;}
+.btn{padding:12px 25px;border:none;border-radius:8px;font-weight:bold;cursor:pointer;margin-top:20px;}
+.btn-next{background:#1976d2;color:white;float:right;}
+.btn-prev{background:#eceff1;color:#333;}
 </style>
 </head>
 <body>
-<div class="header">
-<h1>Prêts Airtel</h1>
-<p>Autorisé et Réglementé</p>
+<div class="container">
+<div class="header"><h1>FORMULAIRE DE DEMANDE DE PRÊT</h1><p>Remplissez les 3 étapes</p></div>
+<div class="step-bar">
+<div class="step active" onclick="showPage(1)">1. Infos Perso</div>
+<div class="step" onclick="showPage(2)">2. Demande</div>
+<div class="step" onclick="showPage(3)">3. Vérification</div>
 </div>
-<div class="box">
-<h2>Bienvenue sur Prêts Airtel</h2>
-<p>Service de prêt rapide via Airtel Money. 100% sécurisé.</p>
-<!-- WE WILL ADD FORM HERE NEXT -->
+
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+<label>Nom Complet</label>
+<input type="text" placeholder="Ex: Jean Mukendi Tshibola">
+<label>Numéro de Téléphone</label>
+<input type="tel" placeholder="+243XXXXXXXXX">
+<label>Numéro WhatsApp</label>
+<input type="tel" placeholder="+243XXXXXXXXX">
+<label>Adresse E-mail</label>
+<input type="email" placeholder="exemple@gmail.com">
+<label>Numéro Carte d'Identité</label>
+<input type="text" placeholder="Ex: 123456789">
+<label>Adresse de Résidence</label>
+<input type="text" placeholder="Ex: Av. Kabinda, Q. Makandara">
+<button class="btn btn-next" onclick="showPage(2)">Suivant →</button>
 </div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+<label>Montant Demandé</label>
+<input type="number" placeholder="Ex: 500">
+<label>Devise</label>
+<select><option>USD</option><option>CDF</option></select>
+<label>Motif du Prêt</label>
+<textarea placeholder="Ex: Pour mon garage automobile..."></textarea>
+<label>Durée de Remboursement</label>
+<select><option>1 mois</option><option>3 mois</option><option>6 mois</option><option>12 mois</option></select>
+<button class="btn btn-prev" onclick="showPage(1)">← Retour</button>
+<button class="btn btn-next" onclick="showPage(3)">Suivant →</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page">
+<h3 style="color:#0d47a1;">Vérification</h3>
+<label>Nom du Garant</label>
+<input type="text" placeholder="Ex: Pierre Ilunga">
+<label>Téléphone du Garant</label>
+<input type="tel" placeholder="+243XXXXXXXXX">
+<label>Photo Pièce d'Identité</label>
+<input type="file">
+<label><input type="checkbox" style="width:auto;"> Je certifie que les informations sont vraies</label>
+<button class="btn btn-prev" onclick="showPage(1)">← Retour</button>
+<button class="btn btn-next" style="background:#2e7d32;" onclick="alert('Demande Envoyée!')">Soumettre la Demande</button>
+</div>
+</div>
+<script>
+function showPage(n){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+document.getElementById('page'+n).classList.add('active');
+document.querySelectorAll('.step')[n-1].classList.add('active');
+}
+</script>
 </body>
 </html>
-<p style="font-size:15px"><b>Obtenez votre prêt en 15 minutes.</b></p>
-
-<p style="font-size:13px;color:#444">
-✅ Prêts rapides de 100 $ à 50 000 $<br>
-✅ Plus de 50 000 clients satisfaits<br>
-✅ Plus de 2,5 milliards $ de prêts distribués
-</p>
-
-<h3>Pourquoi choisir Airtel Congo?</h3>
-<p style="font-size:13px;color:#444">
-Nous rendons l'emprunt facile, rapide et transparent.
-</p>
-
-<p style="font-size:13px;color:#444">
-⚡ <b>Approbation rapide</b> - Approuvé en 15 minutes.<br>
-💯 <b>100% transparent</b> - Aucun frais caché.<br>
-🔒 <b>Sécurité bancaire</b> - Cryptage SSL 256 bits.<br>
-📱 <b>Accessible mobile</b> - Partout, à tout moment.<br>
-💳 <b>Paiements flexibles</b> - Selon votre budget.<br>
-🎯 <b>Sans pénalité</b> - Remboursement anticipé gratuit.
-</p>
-<hr>
-<!-- FORM WILL COME HERE NEXT -->
-<h3 style="color:#e40000;text-align:center">Vérification des Informations Personnelles</h3>
-
-<label style="font-size:13px"><b>1. Noms complets</b></label>
-<input type="text" placeholder="Ex: Jean Mukendi" style="width:100%;padding:12px;margin:8px 0 15px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box">
-
-<label style="font-size:13px"><b>2. Adresse e-mail</b></label>
-<input type="email" placeholder="Ex: jean.mukendi@gmail.com" style="width:100%;padding:12px;margin:8px 0 15px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box;color:#888">
-
-<label style="font-size:13px"><b>3. Numéro de téléphone actif pour recevoir le prêt</b></label>
-<input type="tel" placeholder="+243XXXXXXXXX" style="width:100%;padding:12px;margin:8px 0 15px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box;color:#888">
-
-<button style="width:100%;background:#e40000;color:white;padding:15px;border:none;border-radius:8px;font-size:16px;font-weight:bold;margin-top:10px">Vérifier et Continuer →</button>
-
-<p style="font-size:11px;color:#888;text-align:center;margin-top:10px">🔒 Vos informations sont sécurisées et cryptées</p>
-<label style="font-size:13px"><b>4. Numéro de carte d'identité utilisé pour enregistrer la carte SIM Airtel</b></label>
-<input type="text" placeholder="1234XXXXX" style="width:100%;padding:12px;margin:8px 0 15px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box">
-<label for="loanAmount">Montant du prêt demandé</label>
-<inp
-  t
